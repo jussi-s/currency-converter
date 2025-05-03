@@ -1,0 +1,139 @@
+{
+  "openapi": "3.0.0",
+  "paths": {
+    "/api/currencies": {
+      "get": {
+        "operationId": "ExchangeRateController_getCurrencies",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "List of unique base currencies (e.g. USD, EUR)"
+          }
+        },
+        "summary": "Get supported base currencies",
+        "tags": [
+          "ExchangeRate"
+        ]
+      }
+    },
+    "/api/target-currencies": {
+      "get": {
+        "operationId": "ExchangeRateController_targetCurrencies",
+        "parameters": [
+          {
+            "name": "baseCurrency",
+            "required": true,
+            "in": "query",
+            "description": "The base currency code (e.g. USD)",
+            "schema": {
+              "example": "USD",
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "List of quote currencies with exchange rates"
+          },
+          "400": {
+            "description": "Missing or invalid query parameter"
+          },
+          "404": {
+            "description": "Base currency not supported or not found in available exchange rates"
+          }
+        },
+        "summary": "Get quote currencies for a given base currency",
+        "tags": [
+          "ExchangeRate"
+        ]
+      }
+    },
+    "/api/exchange-rates": {
+      "get": {
+        "operationId": "ExchangeRateController_exchangeRates",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "Full list of exchange rate objects from cache or swop.cx API"
+          }
+        },
+        "summary": "Get all exchange rate entries",
+        "tags": [
+          "ExchangeRate"
+        ]
+      }
+    },
+    "/api/force-update-cache": {
+      "post": {
+        "description": "Triggers a manual fetch and refresh of exchange rates. Use with caution.",
+        "operationId": "ExchangeRateController_forceCacheUpdate",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "Exchange rates were refreshed and Redis cache was updated."
+          }
+        },
+        "summary": "Force currency cache update",
+        "tags": [
+          "ExchangeRate"
+        ]
+      }
+    },
+    "/api/health": {
+      "get": {
+        "operationId": "ExchangeRateController_getHealth",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "Returns Redis cache freshness and last update time",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "example": {
+                    "status": "ok",
+                    "lastUpdated": "2025-05-02T15:00:00.000Z",
+                    "expiresInSeconds": 2950
+                  }
+                }
+              }
+            }
+          }
+        },
+        "summary": "Health check and cache status",
+        "tags": [
+          "ExchangeRate"
+        ]
+      }
+    },
+    "/api/csrf-token": {
+      "get": {
+        "operationId": "SecurityController_getCsrfToken",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": ""
+          }
+        },
+        "tags": [
+          "Security"
+        ]
+      }
+    }
+  },
+  "info": {
+    "title": "Currency Converter API",
+    "description": "API for querying currency exchange rates",
+    "version": "1.0",
+    "contact": {}
+  },
+  "tags": [
+    {
+      "name": "Exchange Rates",
+      "description": ""
+    }
+  ],
+  "servers": [],
+  "components": {
+    "schemas": {}
+  }
+}
