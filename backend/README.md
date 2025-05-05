@@ -48,6 +48,7 @@ SWOP_API_KEY=your_swop_api_key_here
 REDIS_HOST=localhost
 REDIS_PORT=6379
 NODE_ENV=development
+ALLOWED_ORIGINS=http://localhost:5173
 ```
 
 **Note:** Do not commit `.env` to version control.

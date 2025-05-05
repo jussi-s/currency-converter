@@ -1,0 +1,10 @@
+{
+  "selectPlaceholder": "-- Select --",
+  "title": "Currency Converter",
+  "baseCurrency": "Base Currency",
+  "targetCurrency": "Target Currency",
+  "amount": "Amount",
+  "convert": "Convert",
+  "result": "Converted Amount:",
+  "exchangeRateLabel": "1 {{base}} = {{quote}} {{target}}"
+}

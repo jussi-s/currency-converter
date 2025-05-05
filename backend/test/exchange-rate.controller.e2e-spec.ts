@@ -124,4 +124,8 @@ describe("ExchangeRateController (e2e)", () => {
       expect(res.status).toBe(201);
     });
   });
+
+  afterAll(async () => {
+    await app.close();
+  });
 });
