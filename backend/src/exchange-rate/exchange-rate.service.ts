@@ -43,7 +43,7 @@ export class ExchangeRateService implements OnModuleInit {
       });
 
       const rates = response.data;
-      await this.redis.set(this.rateKey, JSON.stringify(rates), "EX", 3600);
+      await this.redis.set(this.rateKey, JSON.stringify(rates), "EX", 86400);
       await this.redis.set(this.updatedAtKey, new Date().toISOString());
 
       this.logger.info("Exchange rates updated and cached successfully");
