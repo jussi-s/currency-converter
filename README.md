@@ -4,7 +4,7 @@ This is a simple currency converter which accepts base/target currencies and an 
 
 ## Build and run the application
 
-1. Build and start the backend service. Follow the setup starting from the Build section at the [backend README](https://github.com/jussi-s/currency-converter/blob/main/backend/README.md).
+1. Build and start the backend service.
 
 - Open the backend directory in a terminal (`cd backend`)
 - Build the application (`npm run build`)
