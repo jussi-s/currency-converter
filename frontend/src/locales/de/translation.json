@@ -1,0 +1,10 @@
+{
+  "selectPlaceholder": "-- Wählen --",
+  "title": "Währungsumrechner",
+  "baseCurrency": "Ausgangswährung",
+  "targetCurrency": "Zielwährung",
+  "amount": "Betrag",
+  "convert": "Umrechnen",
+  "result": "Umgerechneter Betrag:",
+  "exchangeRateLabel": "1 {{base}} = {{quote}} {{target}}"
+}
