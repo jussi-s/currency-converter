@@ -20,11 +20,11 @@ This is a NestJS backend for a currency conversion microservice. It fetches exch
 - Docker (for Redis)
 - Redis running (or use `docker-compose`)
 
-### Installation
+### Build
 
 ```bash
 cd backend
-npm install
+npm run build
 ```
 
 ### Run Redis with Docker
@@ -47,7 +47,6 @@ Create a `.env` file:
 SWOP_API_KEY=your_swop_api_key_here
 REDIS_HOST=localhost
 REDIS_PORT=6379
-NODE_ENV=development
 ALLOWED_ORIGINS=http://localhost:5173
 ```
 
@@ -57,7 +56,7 @@ ALLOWED_ORIGINS=http://localhost:5173
 
 | Command            | Description          |
 | ------------------ | -------------------- |
-| `npm start`        | Run the application  |
+| `npm run start`    | Run the application  |
 | `npm run lint`     | Run ESLint           |
 | `npm test`         | Run all tests        |
 | `npm run test:e2e` | Run end-to-end tests |
